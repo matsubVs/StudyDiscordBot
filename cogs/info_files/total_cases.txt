@@ -1,0 +1,13 @@
+**Country**: `Russia`
+**Total**: `262,843`
+**New cases**: `+10,598`
+**Deaths**: `2,418 `
+**New Deaths**: `+113`
+**Recovered**: `58,226`
+**Active**: `202,199`
+**Critical**: `2,300`
+**Cases/1M pop**: `1,801`
+**Deaths/1M pop**: `17`
+**Tests**: `6,413,948`
+**Tests/1M pop**: `43,953`
+**Population**: `145,926,611 `
