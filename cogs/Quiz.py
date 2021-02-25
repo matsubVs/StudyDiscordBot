@@ -4,6 +4,8 @@ from discord.ext import commands
 import sqlite3
 from commands import is_all, is_owner
 
+from typing import List
+
 
 class Quiz(commands.Cog):
 
@@ -12,7 +14,7 @@ class Quiz(commands.Cog):
 
     @is_owner()
     @commands.command()
-    async def db(self, ctx):
+    async def db(self, ctx) -> None:
         con = sqlite3.connect('cogs/data/quiz.db')
         cur = con.cursor()
         x = cur.execute('SELECT * FROM teams')
@@ -20,7 +22,7 @@ class Quiz(commands.Cog):
             print(i)
 
     @commands.command(aliases=['r'])
-    async def register(self, ctx, team: str, *members: discord.Member):
+    async def register(self, ctx, team: str, *members: discord.Member) -> None:
         guild = ctx.guild
         con = sqlite3.connect('cogs/data/quiz.db')
         cur = con.cursor()
@@ -61,7 +63,7 @@ class Quiz(commands.Cog):
                 await ctx.author.send('Ошиблись каналом!')
 
     @commands.command(aliases=['a'])
-    async def answer(self, ctx, *answers):
+    async def answer(self, ctx, *answers: List) -> None:
 
         if ctx.channel.id == 701183459040952461:
             team = ctx.author.top_role
@@ -85,7 +87,7 @@ class Quiz(commands.Cog):
 
     @is_all()
     @commands.command()
-    async def end(self, ctx):
+    async def end(self, ctx) -> None:
         con = sqlite3.connect('cogs/data/quiz.db')
         cur = con.cursor()
         guild = ctx.guild

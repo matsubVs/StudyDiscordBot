@@ -10,7 +10,7 @@ class Listener(commands.Cog):
         self.client = client
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_message(self, message: discord.message) -> None:
 
         #  Удаление мата
 
@@ -92,13 +92,13 @@ class Listener(commands.Cog):
             pass
 
     @commands.Cog.listener()
-    async def on_member_join(self, member):
+    async def on_member_join(self, member: discord.Member) -> None:
         role = get(member.guild.roles, name='Новичок')
         await member.add_roles(role)
         print(f'{member} зашел на сервер!')
 
     @commands.Cog.listener()
-    async def on_member_update(self, before, after):
+    async def on_member_update(self, before: discord.Member, after: discord.Member) -> None:
         sm = after.nick
         if sm:
             if sm.lower().count('helper') > 0:

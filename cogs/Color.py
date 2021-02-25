@@ -23,7 +23,7 @@ class Color(commands.Cog):
             await self.role_name.edit(colour=clr)
 
     @commands.command()
-    async def start(self, ctx, role_name):
+    async def start(self, ctx, role_name: str):
         guild = self.client.get_guild(689495182609219700)
         self.validate = True
         self.role_name = get(guild.roles, name=role_name)

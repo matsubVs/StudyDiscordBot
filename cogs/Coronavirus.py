@@ -9,7 +9,7 @@ class Coronavirus(commands.Cog):
         self.client = client
 
     @commands.command(aliases=['тесты'])
-    async def total_tests(self, ctx):
+    async def total_tests(self, ctx) -> None:
 
         await ctx.message.delete()
         url_default = 'https://www.worldometers.info/coronavirus/'
@@ -47,7 +47,7 @@ class Coronavirus(commands.Cog):
         await ctx.channel.send(f'**Проведено тестов в мире:** \n`{count_tests}`')
 
     @commands.command(aliases=['статистика'])
-    async def check_stat(self, ctx, country=None):
+    async def check_stat(self, ctx, country: str = None) -> None:
 
         await ctx.message.delete()
         url_default = 'https://www.worldometers.info/coronavirus/'

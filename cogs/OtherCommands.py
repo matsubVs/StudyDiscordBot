@@ -8,12 +8,12 @@ class OtherCommands(commands.Cog):
         self.client = client
 
     @commands.command(aliases=['очистить'])
-    async def clear(self, ctx, amount: int):
+    async def clear(self, ctx, amount: int) -> None:
         await ctx.message.delete()
         await ctx.channel.purge(limit=amount)
 
     @commands.command(aliases=['отправить'])
-    async def send_to(self, ctx, member: discord.Member, message=None):
+    async def send_to(self, ctx, member: discord.Member, message: str = None) -> None:
         await member.send(f'{member.name}, привет от {ctx.author.name}\nMessage: {message}')
         await ctx.message.delete()
 
@@ -40,7 +40,7 @@ class OtherCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command(aliases=['вопрос'])
-    async def _8ball(self, ctx, *, question):
+    async def _8ball(self, ctx, *, question: str) -> None:
         responses = ['Это точно',
                      'Так, решено!',
                      'Да, безусловно',
@@ -62,7 +62,7 @@ class OtherCommands(commands.Cog):
         await ctx.channel.send(f'Вопрос: {question}\nОтвет: {choice(responses)}')
 
     @commands.command(aliases=['монетка'])
-    async def flip(self, ctx, range_x=None, range_y=None):
+    async def flip(self, ctx, range_x: str = None, range_y: str = None) -> None:
         money = ['Решка', 'Орел']
 
         if (range_x or range_y) is not None:

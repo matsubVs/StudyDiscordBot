@@ -74,7 +74,7 @@ class Study(commands.Cog):
     #     await self.client.wait_until_ready()
 
     @staticmethod
-    async def del_lesson(id_l):
+    async def del_lesson(id_l: int):
         if id_l == 0:
             id_l += 1
         con = sqlite3.connect('cogs/data/main.db')
